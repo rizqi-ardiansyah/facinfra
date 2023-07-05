@@ -177,12 +177,9 @@ Route::get('/keranjang_rusak_luar/edit/{id_rusak}', 'KeranjangrusakluarControlle
 Route::post('/keranjang_rusak_luar/update', 'KeranjangrusakluarController@update');
 Route::get('/keranjang_rusak_luar/hapus/{id_rusak}', 'KeranjangrusakluarController@delete');
 
-
-
-
 //Export
 Route::get('/peminjaman/export_excel', 'PeminjamanController@export_excel');
-Route::get('/peminjaman/export_pdf', 'PeminjamanController@export_pdf');
+Route::get('/peminjaman/exportPdf', 'PeminjamanController@generatePDF');
 Route::get('/barang_ruangan/export_excel', 'InputruanganController@export_excel');
 Route::get('/keluar/export_excel', 'KeluarController@export_excel');
 Route::get('/masuk/export_excel', 'MasukController@export_excel');

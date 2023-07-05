@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+
+
 <title>Data Peminjaman</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -46,7 +48,7 @@
   <div class="table-responsive">
     {{-- <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>--}}
     <a href="/peminjaman/export_excel" class="btn btn-warning my-3" target="_blank">EXPORT EXCEL</a>
-    <a href="/peminjaman/export_pdf" class="btn btn-warning my-3" target="_blank">EXPORT PDF</a>
+    <a href="/sarpras/public/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">EXPORT PDF</a>
       <br>
       <br> 
      <table id="example" class="table table-bordered js-basic-example dataTable" cellspacing="0">
@@ -163,7 +165,7 @@
     $('#example').DataTable({
            processing: true,
            serverSide: true,
-           ajax: "/peminjaman_json",
+           ajax: "/sarpras/public/peminjaman_json",
            columns: [
                     { data: 'nama_peminjam', name: 'nama_peminjam' },
                     { data: 'nama_barang', name: 'nama_barang' },

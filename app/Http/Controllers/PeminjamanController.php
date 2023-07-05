@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use auth;
 use DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -9,6 +10,16 @@ use App\Exports\PeminjamanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\BarangNew;
+use \Mpdf\Mpdf as PDF; 
+use Illuminate\Support\Facades\Storage;
+// use App\Peminjaman;
+// use PDF;
+use Response;
+use Dompdf\Dompdf;
+// use Storage;
+
+// use Barryvdh\DomPDF\Facade\Pdf;
 
 class PeminjamanController extends Controller
 {
@@ -206,4 +217,11 @@ class PeminjamanController extends Controller
     {
         return Excel::download(new PeminjamanExport(), 'peminjaman.xlsx');
     }
+
+    public function generatePDF()
+    {
+     
+        return view("peminjaman.cetakPdf",compact('name'));
+    }
 }
+

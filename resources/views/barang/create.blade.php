@@ -1,8 +1,7 @@
 @extends('layouts.layout')
 @section('css')
 <style type="text/css">
-
-
+	
 	.table{
 		color: black !important;
 		font-size: 11px;
