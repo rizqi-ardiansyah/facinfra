@@ -84,7 +84,7 @@
 		<div class="table-responsive">
 			<a class="btn btn-primary" href="{{ action('BarangController@create') }}">Tambah Data</a>
 			<a class="btn btn-success" href="{{ action('BarangController@import') }}" >Import</a>
-			<a href="/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">EXPORT PDF</a>
+			<a href="/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">Export PDF</a>
 			<br>
 			<br>
 

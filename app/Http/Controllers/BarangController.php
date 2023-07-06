@@ -55,7 +55,6 @@ class BarangController extends Controller
 		$data["tahun_anggaran"] = $request->tahun_anggaran;
 		$data["kode_barang"] = $request->kode_barang;
 		$data["nama_barang"] = $request->nama_barang;
-		$data["nameBarang"] = $request->nameBarang;
 		$data["merk_type"] = $request->merk_type;
 		$data["tanggal_perolehan"] = $request->tanggal_perolehan;
 		$data["rupiah_satuan"] = $request->rupiah_satuan;
@@ -65,7 +64,7 @@ class BarangController extends Controller
 		if ($request->has('gambar')) {
 			$extension = $request->file('gambar')->extension();
 			$imgName = 'gambar/' . date('dmh') . '-' .rand(1,10).'-'. $data['kode'] . '.' . $extension;
-			$path = Storage::putFileAs('/sarpras/public', $request->file('gambar'), $imgName);
+			$path = Storage::putFileAs('/storage', $request->file('gambar'), $imgName);
 			$data['gambar'] = $path;
 		}
 
@@ -117,8 +116,9 @@ class BarangController extends Controller
 		if ($request->has('gambar')) {
 			$extension = $request->file('gambar')->extension();
 			$imgName = 'gambar/' . date('dmh') . '-' .rand(1,10).'-'. $data['kode'] . '.' . $extension;
-			$path = Storage::putFileAs('/sarpras/public', $request->file('gambar'), $imgName);
-			$data['gambar'] = $path;
+			$path = Storage::putFileAs('public', $request->file('gambar'), $imgName);
+			$paths = 'storage/'.$imgName;
+			$data['gambar'] = $paths;
 		}
 
 		BarangNew::where('id', $id)->update($data);

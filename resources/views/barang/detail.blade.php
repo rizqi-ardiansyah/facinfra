@@ -47,10 +47,10 @@
 						<th width="35%">Kode</th>
 						<td>: {{ $data->kode }}</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<th>Kode Lokasi</th>
 						<td>: {{ $data->kode_lokasi }}</td>
-					</tr>					
+					</tr>					 -->
 					<tr>
 						<th>Tahun Anggaran</th>
 						<td>: {{ $data->tahun_anggaran }}</td>
@@ -59,14 +59,14 @@
 						<th>Kode Barang</th>
 						<td>: {{ $data->kode_barang }}</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<th>No Aset</th>
 						<td>: {{ $data->nomor_aset }}</td>
-					</tr>
-					<tr>
+					</tr> -->
+					<!-- <tr>
 						<th>Subkelompok Barang</th>
 						<td>: {{ $data->subkelompok_barang }}</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<th>Merk Type</th>
 						<td>: {{ $data->merk_type }}</td>
@@ -77,7 +77,7 @@
 					</tr>
 					<tr>
 						<th>Rupiah Satuan</th>
-						<td>: {{ $data->rupiah_satuan }}</td>
+						<td>: Rp. {{ $data->rupiah_satuan }}</td>
 					</tr>
 					<tr>
 						<th>Ruang</th>
