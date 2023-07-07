@@ -65,6 +65,7 @@ class BarangController extends Controller
 		$data["merk_type"] = $request->merk_type;
 		$data["tanggal_perolehan"] = $request->tanggal_perolehan;
 		$data["rupiah_satuan"] = $request->rupiah_satuan;
+		$data["jumlah"] = $request->jumlah;
 		$data["ruang"] = $request->ruang;
 		$data["kondisi_barang"] = $request->kondisi_barang;
 
@@ -84,7 +85,6 @@ class BarangController extends Controller
 
 	public function edit($id)
 	{
-
 		$data = BarangNew::find($id);
 		$ruangan  = Ruangan::get();
 			$kondisi  = ['Baik'=>'Baik','Rusak Ringan'=>'Rusak Ringan','Rusak Berat'=>'Rusak Berat',];
@@ -163,10 +163,10 @@ class BarangController extends Controller
     public function show($id)
     {
 
-    	// $data = BarangNew::find($id);
-    	// $url = env('APP_URL') . '/scan-barcode/';
-    	// $qrcode = QrCode::size(200)->generate($url . $data->id);
-    	// return view('barang.detail', compact('data', 'qrcode'));
+    	$data = BarangNew::find($id);
+    	$url = env('APP_URL') . '/scan-barcode/';
+    	$qrcode = QrCode::size(200)->generate($url . $data->id);
+    	return view('barang.detail', compact('data', 'qrcode'));
     }
 
     public function tambahRuang($id)
@@ -196,7 +196,7 @@ class BarangController extends Controller
 
 	public function generatePdf()
     {
-        return view("barang.cetakPdf");
+        return view("barang.cetakBarangPdf");
 		// return 'berhasil';
     }
 

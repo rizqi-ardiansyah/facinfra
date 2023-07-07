@@ -25,6 +25,7 @@ class CreateBarangNewsTable extends Migration
             $table->string('merk_type')->nullable();
             $table->date('tanggal_perolehan')->nullable();
             $table->string('rupiah_satuan')->default(0);
+            $table->string('jumlah')->nullable();
             $table->string('ruang')->nullable();
             $table->string('kondisi_barang')->nullable();
             $table->string('gambar')->nullable();

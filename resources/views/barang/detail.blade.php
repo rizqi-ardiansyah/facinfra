@@ -80,6 +80,10 @@
 						<td>: Rp. {{ $data->rupiah_satuan }}</td>
 					</tr>
 					<tr>
+						<th>Jumlah</th>
+						<td>: {{ $data->jumlah }}</td>
+					</tr>
+					<tr>
 						<th>Ruang</th>
 						<td>: {{ $data->ruang }}</td>
 					</tr>

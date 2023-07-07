@@ -98,13 +98,14 @@
 						<th>Kode</th>
 						<!-- <th>Kode Lokasi</th> -->
 						<th>Tahun Anggaran</th>
-						<th>Kode Barang</th>
+						<!-- <th>Kode Barang</th> -->
 						<th>Nama Barang</th>
 						<!-- <th>No Aset</th> -->
 						<!-- <th>Subkelompok Barang</th> -->
 						<th>Merk/ Type</th>
 						<th>Tanggal Perolehan</th>
 						<th>Rupiah Satuan</th>
+						<th>Jumlah</th>
 						<th>Ruang</th>
 						<th>Kondisi Barang</th>
 					</tr>
@@ -130,13 +131,14 @@
 						<td>{{ $val->kode }}</td>
 						<!-- <td>{{ $val->kode_lokasi }}</td> -->
 						<td>{{ $val->tahun_anggaran }}</td>
-						<td>{{ $val->kode_barang }}</td>
+						<!-- <td>{{ $val->kode_barang }}</td> -->
 						<td>{{ $val->nama_barang }}</td>
 						<!-- <td>{{ $val->nomor_aset }}</td> -->
 						<!-- <td>{{ $val->subkelompok_barang }}</td> -->
 						<td>{{ $val->merk_type }}</td>
 						<td>{{ $val->tanggal_perolehan }}</td>
 						<td>Rp.{{ Ribuan($val->rupiah_satuan) }}</td>
+						<td>{{ $val->jumlah  }}</td>
 						<td>{{ $val->nama_ruangan }}</td>
 						<td>{{ $val->kondisi_barang }}</td>
 					</tr>

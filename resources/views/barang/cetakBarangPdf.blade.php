@@ -39,7 +39,11 @@
   <tr>
     <th>Kode</th>
     <th>Tahun anggaran</th>
-    <th>Country</th>
+    <th>Nama Barang</th>
+    <th>Merk/Type</th>
+    <th>Tanggal Perolehan</th>
+    <th>Rupiah satuan</th>
+
   </tr>
   <tr>
     <td>Alfreds Futterkiste</td>
