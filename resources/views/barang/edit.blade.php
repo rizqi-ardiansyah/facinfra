@@ -102,7 +102,7 @@
 								<option>Pilih Ruangan</option>
 								@foreach($ruangan as $key => $val )
 								
-								<option value="{{ $val->nama_ruangan }}" {{ $val->nama_ruangan == $data->nama_ruangan ? 'selected' : '' }} >{{ $val->nama_ruangan }}</option>
+								<option value="{{ $val->id }}" {{ $val->id == $data->id ? 'selected' : '' }} >{{ $val->nama_ruangan }}</option>
 								@endforeach
 							</select>
 

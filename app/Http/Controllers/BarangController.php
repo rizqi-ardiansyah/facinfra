@@ -26,7 +26,10 @@ class BarangController extends Controller
 	{
 		$ruangan  = Ruangan::pluck('nama_ruangan','nama_ruangan');
 		$tahun = BarangNew::groupBy('tahun_anggaran')->pluck('tahun_anggaran','tahun_anggaran');
-		$data  = BarangNew::when($request->has('kode') && !empty($request->kode), function($q){
+		$data  = BarangNew::select('barang_news.id','kode','tahun_anggaran','kode_barang','nama_barang','merk_type','jumlah',
+		'tanggal_perolehan','rupiah_satuan','ruang','kondisi_barang','gambar','r.nama_ruangan')
+					->join('ruangans as r','barang_news.ruang','=','r.id')
+					->when($request->has('kode') && !empty($request->kode), function($q){
 						$q->where('kode','like','%'.request()->kode.'%');
 					})
 					->when($request->has('ruang') && !empty($request->ruang), function($q){
@@ -36,16 +39,20 @@ class BarangController extends Controller
 						$q->where('tahun_anggaran','like','%'.request()->tahun.'%');
 					})
 					->paginate(10);
+					// DB::table('files')->latest('upload_time')->first();
+				
+		$lastId = DB::table('barang_news')->max('id');
+		
 
-		return view('barang.view', compact('data','ruangan','tahun'));
+		return view('barang.view', compact('data','ruangan','tahun','lastId'));
 	}
 
 	public function create(Request $request)
 	{
-
+		$lastId = DB::table('barang_news')->max('id');
 		$ruangan  = Ruangan::get();
 		$kondisi  = ['Baik'=>'Baik','Rusak Ringan'=>'Rusak Ringan','Rusak Berat'=>'Rusak Berat',];
-		return view('barang.create', compact('ruangan','kondisi'));
+		return view('barang.create', compact('ruangan','kondisi','lastId'));
 	}
 
 	public function store(Request $request)
@@ -68,7 +75,7 @@ class BarangController extends Controller
 			$data['gambar'] = $path;
 		}
 
-		BarangNew::create($data);
+		BarangNew::create($data);	
 
 		toastr()->success('Data Telah Terinput','success!');
 		return redirect(action('BarangController@index'));
@@ -89,7 +96,7 @@ class BarangController extends Controller
 	public function qrcode($id)
 	{
 
-		$qrcode = DB::table('barangs')->where('id_barang', $id)->first();
+		$qrcode = DB::table('barang_news')->where('id', $id)->first();
 
 		return view('barang.qrcode', compact('qrcode'));
 	}
@@ -135,7 +142,7 @@ class BarangController extends Controller
      */
     public function delete($id)
     {
-    	DB::table('barangs')->where('id_barang', $id)->delete();
+    	DB::table('barang_news')->where('id', $id)->delete();
     	Alert::success('Success', 'Data Telah Terhapus');	
     	return redirect()->route('barang.index');
     }
@@ -156,10 +163,10 @@ class BarangController extends Controller
     public function show($id)
     {
 
-    	$data = BarangNew::find($id);
-    	$url = env('APP_URL') . '/scan-barcode/';
-    	$qrcode = QrCode::size(200)->generate($url . $data->id);
-    	return view('barang.detail', compact('data', 'qrcode'));
+    	// $data = BarangNew::find($id);
+    	// $url = env('APP_URL') . '/scan-barcode/';
+    	// $qrcode = QrCode::size(200)->generate($url . $data->id);
+    	// return view('barang.detail', compact('data', 'qrcode'));
     }
 
     public function tambahRuang($id)
@@ -186,5 +193,11 @@ class BarangController extends Controller
     	$result['code'] = '200';
     	return response()->json($result);
 	}
+
+	public function generatePdf()
+    {
+        return view("barang.cetakPdf");
+		// return 'berhasil';
+    }
 
 }

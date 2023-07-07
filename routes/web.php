@@ -46,6 +46,7 @@ Route::get('scan-barcode/{id}', function($id){
 // Route::post('/barang/update', 'BarangController@update');
 
 Route::get('import', 'BarangController@import');
+Route::get('generatePdf', 'BarangController@generatePdf');
 Route::post('import/store', 'BarangController@importStore');
 
 // ruangan
@@ -180,6 +181,7 @@ Route::get('/keranjang_rusak_luar/hapus/{id_rusak}', 'KeranjangrusakluarControll
 //Export
 Route::get('/peminjaman/export_excel', 'PeminjamanController@export_excel');
 Route::get('/peminjaman/exportPdf', 'PeminjamanController@generatePDF');
+Route::get('/barang/exportPdf', 'BarangController@generatePDF');
 Route::get('/barang_ruangan/export_excel', 'InputruanganController@export_excel');
 Route::get('/keluar/export_excel', 'KeluarController@export_excel');
 Route::get('/masuk/export_excel', 'MasukController@export_excel');

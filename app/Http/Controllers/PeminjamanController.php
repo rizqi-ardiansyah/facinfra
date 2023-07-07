@@ -220,8 +220,7 @@ class PeminjamanController extends Controller
 
     public function generatePDF()
     {
-     
-        return view("peminjaman.cetakPdf",compact('name'));
+        return view("peminjaman.cetakPdf");
     }
 }
 

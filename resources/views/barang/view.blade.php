@@ -23,6 +23,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </div>
+
 <form action="{{ url()->full() }}" method="GET">
 	<div class="row mb-3"> 
 		<div class="col-md-12">
@@ -84,7 +85,8 @@
 		<div class="table-responsive">
 			<a class="btn btn-primary" href="{{ action('BarangController@create') }}">Tambah Data</a>
 			<a class="btn btn-success" href="{{ action('BarangController@import') }}" >Import</a>
-			<a href="/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">Export PDF</a>
+			<a class="btn btn-warning" href="{{ action('BarangController@generatePdf') }}" target="_blank">Export Pdf</a>
+			<!-- <a href="{{ action('BarangController@generatePdf') }}" class="btn btn-warning my-3" target="_blank">Export PDF</a> -->
 			<br>
 			<br>
 
@@ -135,7 +137,7 @@
 						<td>{{ $val->merk_type }}</td>
 						<td>{{ $val->tanggal_perolehan }}</td>
 						<td>Rp.{{ Ribuan($val->rupiah_satuan) }}</td>
-						<td>{{ $val->ruang }}</td>
+						<td>{{ $val->nama_ruangan }}</td>
 						<td>{{ $val->kondisi_barang }}</td>
 					</tr>
 					@empty

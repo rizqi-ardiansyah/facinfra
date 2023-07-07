@@ -54,13 +54,13 @@
 					<div class="form-group row">
 						<label for="staticEmail" class="col-sm-2 col-form-label">Kode Barang</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control"  value=""  name="kode_barang" required>
+							<input type="text" class="form-control"  value="B000{{$lastId+1}}"  name="kode_barang" readonly>
 						</div>
 					</div>	
 					<div class="form-group row">
 						<label for="staticEmail" class="col-sm-2 col-form-label">Nama Barang</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control"  value=""  name="nama_barang" required>
+							<input type="text" class="form-control"  value=""  name="nama_barang">
 						</div>
 					</div>	
 					{{-- <div class="form-group row">
