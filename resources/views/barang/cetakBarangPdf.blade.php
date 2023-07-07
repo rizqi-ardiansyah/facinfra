@@ -2,28 +2,86 @@
 <html>
 <head>
 <style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+  @page {
+    /* size: 21cm 29.7cm;
+    margin: 30mm 45mm 30mm 45mm; */
+    size: A4;
+        margin: 0;
+     /* change the margins as you want them to be. */
 }
 
-#customers td, #customers th {
+#page {
+  /* font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%; */
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  margin: 10mm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+
+  /* width: 21cm;
+  min-height: 29.7cm;
+  padding: 2cm;
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+}
+
+#subpage{
+  padding: 1cm;
+        /* border: 5px red solid; */
+        height: 257mm;
+        /* outline: 2cm #FFEAEA solid; */
+} 
+
+#subpage th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#subpage tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#subpage tr:hover {background-color: #ddd;}
 
-#customers th {
+#subpage th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #04AA6D;
   color: white;
 }
+
+#subpage td {
+  /* padding-top: 12px;
+  padding-bottom: 12px; */
+  text-align: center;
+  /* background-color: #04AA6D;
+  color: white; */
+}
+
+@media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+      }
 
 * {
         -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
@@ -32,82 +90,73 @@
 </style>
 </head>
 <body>
+<div class="page">
+<table id="subpage">
 
-<h1>A Fancy Table</h1>
-
-<table id="customers">
   <tr>
+    <img src="/sarpras/public/img/kopYayasan.png" alt="Girl in a jacket" width="1000" height="auto">
+    <th>No.</th>
+    <th>QR Code</th>
     <th>Kode</th>
     <th>Tahun anggaran</th>
     <th>Nama Barang</th>
     <th>Merk/Type</th>
     <th>Tanggal Perolehan</th>
     <th>Rupiah satuan</th>
+    <th>Jumlah</th>
+    <th>Ruang</th>
+    <th>Kondisi barang</th>
 
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Königlich Essen</td>
-    <td>Philip Cramer</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>Simon Crowther</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris spécialités</td>
-    <td>Marie Bertrand</td>
-    <td>France</td>
-  </tr>
+ 
+  <tbody>
+          <?php $i=0; ?>
+					@php
+					$url = env('APP_URL') . '/scan-barcode/';
+					@endphp
+					@forelse($data as $k => $val)
+					@php	
+					$qrcode = \QrCode::size(100)->generate($url . $val->id);
+					@endphp
+					<tr>
+            <td> {{ $i+=1 }}</td>
+						<td>{!! $qrcode  !!}</td>
+						<td>{{ $val->kode }}</td>
+						<!-- <td>{{ $val->kode_lokasi }}</td> -->
+						<td>{{ $val->tahun_anggaran }}</td>
+						<!-- <td>{{ $val->kode_barang }}</td> -->
+						<td>{{ $val->nama_barang }}</td>
+						<!-- <td>{{ $val->nomor_aset }}</td> -->
+						<!-- <td>{{ $val->subkelompok_barang }}</td> -->
+						<td>{{ $val->merk_type }}</td>
+						<td>{{ $val->tanggal_perolehan }}</td>
+						<td>Rp.{{ Ribuan($val->rupiah_satuan) }}</td>
+						<td>{{ $val->jumlah  }}</td>
+						<td>{{ $val->nama_ruangan }}</td>
+						<td>{{ $val->kondisi_barang }}</td>
+					</tr>
+					@empty
+					<tr class="align-middle">
+						<td colspan="13" class="text-center"><h5>Tidak ada data untuk ditampilkan</h5></td>
+					</tr>
+					@endforelse
+				</tbody>
+
+
 </table>
+  
 
 <input type="button" value="Click Me" id="button_id" onclick="myFunction()">
-
+</div>
 <script>
 function myFunction() {
 	
-	var data = document.getElementById("customers").value;
+	var data = document.getElementById("subpage").value;
 	var  datacount = (parseInt(data) + 1);
-	document.getElementById("customers").value = datacount;	
+	document.getElementById("subpage").value = datacount;	
   document.getElementById("button_id").style.display = "none";
-	// document.getElementById("button_id").value = window.print();
-//   window.close();
+	document.getElementById("button_id").value = window.print();
+  window.close();
 }
 setInterval(function(){
 document.getElementById("button_id").click();	

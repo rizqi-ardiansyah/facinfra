@@ -194,9 +194,31 @@ class BarangController extends Controller
     	return response()->json($result);
 	}
 
-	public function generatePdf()
+	public function generatePdf(Request $request)
     {
-        return view("barang.cetakBarangPdf");
+		$ruangan  = Ruangan::pluck('nama_ruangan','nama_ruangan');
+		$tahun = BarangNew::groupBy('tahun_anggaran')->pluck('tahun_anggaran','tahun_anggaran');
+		$data  = BarangNew::select('barang_news.id','kode','tahun_anggaran','kode_barang','nama_barang','merk_type','jumlah',
+		'tanggal_perolehan','rupiah_satuan','ruang','kondisi_barang','gambar','r.nama_ruangan')
+					->join('ruangans as r','barang_news.ruang','=','r.id')
+					->when($request->has('kode') && !empty($request->kode), function($q){
+						$q->where('kode','like','%'.request()->kode.'%');
+					})
+					->when($request->has('ruang') && !empty($request->ruang), function($q){
+						$q->where('ruang','like','%'.request()->ruang.'%');
+					})					
+					->when($request->has('tahun') && !empty($request->tahun), function($q){
+						$q->where('tahun_anggaran','like','%'.request()->tahun.'%');
+					})
+					->paginate(10);
+					// DB::table('files')->latest('upload_time')->first();
+				
+		$lastId = DB::table('barang_news')->max('id');
+		
+
+		return view('barang.cetakBarangPdf', compact('data','ruangan','tahun','lastId'));
+
+        // return view("barang.cetakBarangPdf");
 		// return 'berhasil';
     }
 
