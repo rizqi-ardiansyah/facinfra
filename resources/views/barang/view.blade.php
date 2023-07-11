@@ -16,7 +16,6 @@
 
 </style>
 @endsection
-
 @section('content')
 <title>Data Barang</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  

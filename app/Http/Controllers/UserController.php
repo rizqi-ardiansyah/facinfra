@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use DB;
 use DataTables;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -114,7 +114,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         
         DB::table('users')->where('id',$request->id)->update([

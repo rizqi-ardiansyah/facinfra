@@ -98,7 +98,7 @@
     <th>No.</th>
     <th>QR Code</th>
     <th>Kode</th>
-    <th>Tahun anggaran</th>
+    <!-- <th>Tahun anggaran</th> -->
     <th>Nama Barang</th>
     <th>Merk/Type</th>
     <th>Tanggal Perolehan</th>
@@ -123,7 +123,7 @@
 						<td>{!! $qrcode  !!}</td>
 						<td>{{ $val->kode }}</td>
 						<!-- <td>{{ $val->kode_lokasi }}</td> -->
-						<td>{{ $val->tahun_anggaran }}</td>
+						<!-- <td>{{ $val->tahun_anggaran }}</td> -->
 						<!-- <td>{{ $val->kode_barang }}</td> -->
 						<td>{{ $val->nama_barang }}</td>
 						<!-- <td>{{ $val->nomor_aset }}</td> -->

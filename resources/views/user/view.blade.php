@@ -47,7 +47,7 @@
                    
                     <td>
                         <div class="row">
-                                <a href="/user/edit/{{ $u->id }}" class="btn btn-primary btn-sm ml-2">Edit</a>
+                                <a href="{{ action('UserController@edit', $u->id) }}" class="btn btn-primary btn-sm ml-2">Edit</a>
                             {{-- <form action="{{ route('user.destroy',$u->id) }}" method="POST">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm ml-2">Delete</button>

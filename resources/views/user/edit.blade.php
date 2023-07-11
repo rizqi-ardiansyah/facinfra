@@ -6,8 +6,9 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-            <form action="/user/update" method="post">
-                    @csrf
+            <form action="{{ action('UserController@update', $user2->id) }}" method="post">
+                     @csrf
+					@method('PUT')
                   <div class="form-group">
                       <label for="">Nama</label>
                       <input type="hidden" name="id" class="form-control" value="{{$user2->id}}" required placeholder="Masukan Nama">

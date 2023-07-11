@@ -23,10 +23,10 @@
 								<th width="35%">Kode</th>
 								<td>: {{ $data->kode }}</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<th>Kode Lokasi</th>
 								<td>: {{ $data->kode_lokasi }}</td>
-							</tr>					
+							</tr>					 -->
 							<tr>
 								<th>Tahun Anggaran</th>
 								<td>: {{ $data->tahun_anggaran }}</td>
@@ -35,14 +35,14 @@
 								<th>Kode Barang</th>
 								<td>: {{ $data->kode_barang }}</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<th>No Aset</th>
 								<td>: {{ $data->nomor_aset }}</td>
-							</tr>
-							<tr>
+							</tr> -->
+							<!-- <tr>
 								<th>Subkelompok Barang</th>
 								<td>: {{ $data->subkelompok_barang }}</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<th>Merk Type</th>
 								<td>: {{ $data->merk_type }}</td>
@@ -73,12 +73,12 @@
 						<div class="row">
 
 							<div class="col-12">
-					@if(!empty($data->gambar))
-					<img src="{{ Storage::url($data->gambar) }}"  class="img-fluid img-thumbnail" alt="Responsive image">
-					@else
-					<img src="{{ asset('assets/img/default.jpg') }}"  class="img-fluid img-thumbnail" alt="Responsive image">
-					@endif
-					</div>
+								@if(!empty($data->gambar))
+								<img src="{{ url($data->gambar) }}"  class="img-fluid img-thumbnail" alt="Responsive image">
+								@else
+								<img src="{{ asset('assets/img/default.jpg') }}"  class="img-fluid img-thumbnail" alt="Responsive image">
+								@endif
+								</div>
 						</div>
 					</div>
 				</div>
