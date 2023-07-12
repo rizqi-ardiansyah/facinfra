@@ -46,7 +46,7 @@
 </div>
 <div class="card-body">
   <div class="table-responsive">
-    {{-- <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>--}}
+   <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
     <a href="/peminjaman/export_excel" class="btn btn-warning my-3" target="_blank">EXPORT EXCEL</a>
     <a href="/sarpras/public/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">EXPORT PDF</a>
       <br>
@@ -78,12 +78,12 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/peminjaman/store" method="post">
+        <form action="{{ route('pinjam.store') }}" method="post">
             @csrf
-             <div class="form-group">
+             <!-- <div class="form-group">
               <label for="">No Peminjaman</label>
               <input type="text" name="no_peminjaman" class="form-control"  required>
-          </div>
+          </div> -->
           <div class="form-group">
               <label for="">Nama Peminjaman</label>
               <input type="text" name="nama_peminjaman" class="form-control"  required>

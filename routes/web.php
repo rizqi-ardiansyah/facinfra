@@ -30,6 +30,7 @@ Route::get('/home', 'HomeController@index');
 Route::post('/user/post', 'UserController@update');
 Route::get('user/json', 'UserController@json');
 Route::resource('user', 'UserController');
+Route::resource('pinjam', 'PeminjamanController');
 Route::get('barang/{id}/tambah-ruang', 'BarangController@tambahRuang');
 Route::put('barang/{id}/simpan-ruang', 'BarangController@simpanRuang');
 Route::resource('barang', 'BarangController');

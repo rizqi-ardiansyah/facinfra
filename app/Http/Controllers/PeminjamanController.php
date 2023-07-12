@@ -54,7 +54,8 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
 
-        // $cek = DB::table('barangs')->where('id_barang', $request->id_barang)->first();
+        $cek = DB::table('barang_news')->where('id', $request->id)->count();
+        // $barang = DB::table('barang_news')->get();
         // if ($cek->jumlah < $request->jumlah) {
         //     return redirect()->back();
         // }
@@ -72,19 +73,19 @@ class PeminjamanController extends Controller
         //         'status_kompetensi' => 'Y',
         //         'pengguna_kompetensi_id' => Auth::user()->id
         //     ]);
-        $count = count($request->id_barang);
+        // $count = count($cek->id);
 
-        for ($i = 0; $i < $count; $i++) {
-            $tes = DB::table('barangs_new')->where('id_barang', $request->id_barang[$i])->first();
+        for ($i = 0; $i < $cek; $i++) {
+            $tes = DB::table('barang_news')->where('id', $request->id[$i])->first();
             if ($tes->jumlah < $request->jumlah[$i]) {
                 return redirect()->back();
             } else {
                 DB::table('peminjaman')->insert([
 
-                    'id_user' => Auth::user()->id,
-                    'no_peminjaman' => $request->no_peminjaman,
+                    // 'id_peminjaman' => Auth::user()->id,
+                    // 'no_peminjaman' => $request->no_peminjaman,
                     'nama_peminjam' =>  $request->nama_peminjaman,
-                    'id_barang' =>  $request->id_barang[$i],
+                    'id_barang' =>  $request->id[$i],
                     'jumlah_pinjam' => $request->jumlah[$i],
                     'tanggal_pinjam' => $request->tanggal_pinjam,
                     'tanggal_kembali' => $request->tanggal_kembali,
