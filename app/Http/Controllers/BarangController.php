@@ -118,6 +118,7 @@ class BarangController extends Controller
 		$data["merk_type"] = $request->merk_type;
 		$data["tanggal_perolehan"] = $request->tanggal_perolehan;
 		$data["rupiah_satuan"] = $request->rupiah_satuan;
+		$data["jumlah"] = $request->jumlah;
 		$data["ruang"] = $request->ruang;
 		$data["kondisi_barang"] = $request->kondisi_barang;
 

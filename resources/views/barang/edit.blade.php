@@ -96,6 +96,12 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<label for="staticEmail" class="col-sm-2 col-form-label">Jumlah</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control"  value="{{ $data->jumlah }}" name="jumlah">
+						</div>
+					</div>
+					<div class="form-group row">
 						<label for="staticEmail" class="col-sm-2 col-form-label">Ruang</label>
 						<div class="col-sm-10">
 							<select class="custom-select my-1 mr-sm-2" name="ruang">
