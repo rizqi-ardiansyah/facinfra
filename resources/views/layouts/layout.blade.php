@@ -1,4 +1,3 @@
-
   <!DOCTYPE html>
   <html lang="en">
 
@@ -41,16 +40,16 @@
 
   			<!-- Sidebar - Brand -->
   			{{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  			
+
   					<img src="{{ asset('img/logo.png') }}" alt="logo" width="45px">
-  			
+
   				<div class="sidebar-brand-text mx-1"><small>SMP NURUL HUDA</small><BR>DATA BMN</BR></div>
   			</a>	 --}}
 
   			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  			
+
   					<img src="{{ asset('img/logoSmp.png') }}" alt="logo" width="100%">
-  			
+
   				{{-- <div class="sidebar-brand-text mx-1"><small></small><BR>DATA BMN</BR></div> --}}
   			</a>
 
@@ -74,21 +73,50 @@
   				</div>
 
   				<!-- Nav Item - Pages Collapse Menu -->
-  				<li class="nav-item {{ (request()->is('barang*')) ? 'active' : '' }} {{ (request()->is('jenis*')) ? 'active' : '' }} {{ (request()->is('ruangan*')) ? 'active' : '' }}{{ (request()->is('kategori*')) ? 'active' : '' }}">
-  					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+  				<li class="nav-item {{ (request()->is('barang*')) ? 'active' : '' }}">
+				  	<a class="nav-link collapsed" href="{{url('barang')}}">
   						<i class="fas fa-fw fa-cog"></i>
+  						<span>Kelola Barang</span>
+  					</a>
+				</li>
+
+				<li class="nav-item {{ (request()->is('ruangan*')) ? 'active' : '' }}">
+					<a class="nav-link collapsed" href="{{url('ruangan')}}">
+  						<i class="fas fa-fw fa-cog"></i>
+  						<span>Kelola Ruang</span>
+  					</a>
+				</li>
+
+				<li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }}">
+					<a class="nav-link collapsed" href="{{url('user')}}">
+  						<i class="fas fa-fw fa-user"></i>
+  						<span>Kelola Admin</span>
+  					</a>
+				</li>
+
+				<li class="nav-item {{ (request()->is('peminjaman*')) ? 'active' : '' }}">
+					<a class="nav-link collapsed" href="{{url('peminjaman')}}">
+  						<i class="fas fa-fw fa-briefcase"></i>
+  						<span>Kelola Peminjaman</span>
+  					</a>
+				</li>
+				@endif
+					<!-- <a class="nav-link collapsed" href="#">
+  						<i class="fas fa-fw fa-file"></i>
+  						<span>Laporan</span>
+  					</a> -->
+{{--
+  				<i class="fas fa-fw fa-cog"></i>
   						<span>Data Master</span>
   					</a>
-  					<div id="collapseTwo" class="collapse {{ (request()->is('barang*')) ? 'show' : '' }} {{ (request()->is('jenis*')) ? 'show' : '' }} {{ (request()->is('ruangan*')) ? 'show' : '' }} {{ (request()->is('kategori*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+  					<div id="collapseTwo" class="collapse  (request()->is('barang*')) ? 'show' : ''  }} {{ (request()->is('jenis*')) ? 'show' : '' }} {{ (request()->is('ruangan*')) ? 'show' : '' }} {{ (request()->is('kategori*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
   						<div class="bg-white py-2 collapse-inner rounded">
   							<h6 class="collapse-header">Data Master</h6>
   							<a class="collapse-item {{ (request()->is('barang*')) ? 'active' : '' }}" href="{{url('barang')}}">Barang</a>
   							<a class="collapse-item {{ (request()->is('ruangan*')) ? 'active' : '' }}" href="{{url('ruangan')}}">Ruangan</a>
-{{--   							<a class="collapse-item {{ (request()->is('kategori*')) ? 'active' : '' }}" href="{{url('kategori')}}">Kategori</a> --}}
+							<a class="collapse-item {{ (request()->is('kategori*')) ? 'active' : '' }}" href="{{url('kategori')}}">Kategori</a>
   						</div>
   					</div>
-  				</li>
-
 
   				<li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }} {{ (request()->is('pj*')) ? 'active' : '' }} {{ (request()->is('rayon*')) ? 'active' : '' }} {{ (request()->is('bukan_pj*')) ? 'active' : '' }}">
   					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
@@ -99,24 +127,24 @@
   						<div class="bg-white py-2 collapse-inner rounded">
   							<h6 class="collapse-header">Data User</h6>
   							<a class="collapse-item {{ (request()->is('user*')) ? 'active' : '' }}" href="{{url('user')}}">Admin</a>
-  						{{-- <a class=" }}collapse-item {{ (request()->is('rayon*')) ? 'active' : '' }}" href="{{url('rayon')}}">Pembimbing</a>
+  							<!-- <a class=" }}collapse-item {{ (request()->is('rayon*')) ? 'active' : '' }}" href="{{url('rayon')}}">Pembimbing</a> -->
   							<a class="collapse-item {{ (request()->is('pj*')) ? 'active' : '' }}" href="{{url('pj')}}">Pj Ruangan</a>
-  							<a class="collapse-item {{ (request()->is('bukan_pj*')) ? 'active' : '' }}" href="{{url('bukan_pj')}}">Bukan Pj</a> --}}
+  							<a class="collapse-item {{ (request()->is('bukan_pj*')) ? 'active' : '' }}" href="{{url('bukan_pj')}}">Bukan Pj</a>
   						</div>
   					</div>
   				</li>
 
-    {{-- <li class="nav-item  (request()->is('user*')) ? 'active' : ''  }}">
-        <a class="nav-link" href="{{url('user')}}">
+    	 <li class="nav-item  (request()->is('user*')) ? 'active' : ''  }}">
+        <!-- <a class="nav-link" href="{{url('user')}}">
           <i class="fas fa-fw fa-user"></i>
-          <span>User</span></a> 
-      </li> --}}
-      <!-- Nav Item - Charts -->
-    {{-- <li class="nav-item">
+          <span>User</span></a>  -->
+      </li>
+	        <!-- Nav Item - Charts -->
+    <li class="nav-item">
         <a class="nav-link" href="{{url('peminjaman')}}">
           <i class="fas fa-fw fa-briefcase"></i>
           <span>Peminjaman</span></a>
-      </li> --}} 
+      </li>
 
         <li class="nav-item {{ (request()->is('keranjang_peminjaman*')) ? 'active' : '' }} {{ (request()->is('peminjaman*')) ? 'active' : '' }} ">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseTwo">
@@ -133,13 +161,13 @@
     </li>
 
     <!-- Nav Item - Tables -->
-    {{-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" href="{{url('input_ruangan')}}">
           <i class="fas fa-fw fa-university"></i>
           <span>Barang Ruangan</span></a>
-      </li> --}}
+      </li>
 
-     <li class="nav-item {{ (request()->is('keranjang_ruangan*')) ? 'active' : '' }} {{ (request()->is('input_ruangan*')) ? 'active' : '' }}">
+     <li class="nav-item  (request()->is('keranjang_ruangan*')) ? 'active' : ''  }} {{ (request()->is('input_ruangan*')) ? 'active' : '' }}">
       	<a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
       		<i class="fas fa-fw fa-university"></i>
       		<span>Barang Ruangan</span>
@@ -153,11 +181,11 @@
       	</div>
       </li>
 
-    {{-- <li class="nav-item">
+	<li class="nav-item">
         <a class="nav-link" href="{{url('keluar')}}">
           <i class="fas fa-fw fa-paper-plane"></i>
           <span>Barang Keluar</span></a>
-      </li> --}}  
+      </li>
 
     <li class="nav-item {{ (request()->is('keranjang_keluar*')) ? 'active' : '' }} {{ (request()->is('keluar*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseTwo">
@@ -173,11 +201,11 @@
         </div>
 	</li>
 
- 	{{-- <li class="nav-item">
+	<li class="nav-item">
         <a class="nav-link" href="{{url('masuk')}}">
           <i class="fas fa-fw fa-rocket"></i>
           <span>Barang Masuk</span></a>
-    </li> --}} 
+    </li>
 
 	<li class="nav-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} {{ (request()->is('masuk*')) ? 'active' : '' }}">
       	<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseTwo">
@@ -239,8 +267,6 @@
       	</div>
       </li>
 
-
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
       @elseif(Auth::user()->level=='rayon' || Auth::user()->level=='pj')
@@ -280,7 +306,7 @@
       		</div>
       	</li>
       	@endif
-
+--}}
       	<!-- Sidebar Toggler (Sidebar) -->
       	<div class="text-center d-none d-md-inline">
       		<button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -401,10 +427,10 @@
   		</div>
   	</div>
   </div>
-  
+
 
   <!-- Bootstrap core JavaScript-->
-  
+
   <script src="{{url('assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -441,7 +467,7 @@
   		}
   	});
 
-  	$(function() {	
+  	$(function() {
 		$('#table-datatables').DataTable();
 	});
 
@@ -449,7 +475,7 @@
   	$(document).on('click','.hapus',function(e){
   		e.preventDefault();
   		var url = $(this).data('url');
-  
+
   		Swal.fire({
   			title: 'Apakah Anda Yakin ?',
   			text: "Data akan terhapus tidak dapat dikembalikan lagi !",
@@ -474,7 +500,7 @@
   							// 	'success'
   							// 	);
   							toastr.success('Data Berhasil Dihapus');
-  							setTimeout(function() { 
+  							setTimeout(function() {
   								location.reload();
   							}, 1000);
   						}

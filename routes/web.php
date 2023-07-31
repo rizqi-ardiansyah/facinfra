@@ -61,6 +61,7 @@ Route::resource('/ruangan', 'RuanganController');
 
 // Kategori
 Route::resource('/kategori', 'KategoriController');
+Route::resource('/peminjaman', 'PeminjamanController');
 // Route::get('/kategori', 'KategoriController@index');
 // Route::post('/kategori/store', 'KategoriController@store');
 // Route::get('/kategori/edit/{id_Kategori}', 'KategoriController@edit');

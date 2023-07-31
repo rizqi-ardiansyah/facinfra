@@ -72,8 +72,9 @@ class BarangController extends Controller
 		if ($request->has('gambar')) {
 			$extension = $request->file('gambar')->extension();
 			$imgName = 'gambar/' . date('dmh') . '-' .rand(1,10).'-'. $data['kode'] . '.' . $extension;
-			$path = Storage::putFileAs('/storage', $request->file('gambar'), $imgName);
-			$data['gambar'] = $path;
+			$path = Storage::putFileAs('public', $request->file('gambar'), $imgName);
+			$paths = 'storage/'.$imgName;
+			$data['gambar'] = $paths;
 		}
 
 		BarangNew::create($data);	

@@ -47,8 +47,8 @@
 <div class="card-body">
   <div class="table-responsive">
    <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
-    <a href="/peminjaman/export_excel" class="btn btn-warning my-3" target="_blank">EXPORT EXCEL</a>
-    <a href="/sarpras/public/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">EXPORT PDF</a>
+    <a href="/peminjaman/export_excel" class="btn btn-warning my-3" target="_blank">Export Excel</a>
+    <a href="/sarpras/public/peminjaman/exportPdf" class="btn btn-warning my-3" target="_blank">Export PDF</a>
       <br>
       <br> 
      <table id="example" class="table table-bordered js-basic-example dataTable" cellspacing="0">
