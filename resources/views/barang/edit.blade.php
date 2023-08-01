@@ -128,13 +128,21 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<label for="staticEmail" class="col-sm-2 col-form-label">Keterangan</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control"  value="{{ $data->keterangan }}" name="keterangan">
+						</div>
+					</div>
+					<div class="form-group row">
 						<label for="staticEmail" class="col-sm-2 col-form-label">Gambar</label>
 						<div class="col-sm-10">
 							<img src="{{ url($data->gambar) }}" width="150" height="auto" alt="Responsive image">
 							<br><br>
 							<input type="file" class="form-control-file" name="gambar">
 							<br>
-						</div>
+					</div>
+					
+					
 					<button type="submit" class="btn btn-primary col-12">Simpan</button>
 					{{-- 	protected $fillable = [ 'kode', 'kode_lokasi', 'tahun_anggaran', 'kode_barang', 'nomor_aset', 'subkelompok_barang', 'merk_type', 'tanggal_perolehan', 'rupiah_satuan', 'ruang', 'kondisi_barang', 'gambar', 'created_by', 'updated_by', 'deleted_by',        ]; --}}
 				</form>

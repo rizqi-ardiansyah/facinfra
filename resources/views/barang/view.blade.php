@@ -106,7 +106,8 @@
 						<th>Rupiah Satuan</th>
 						<th>Jumlah</th>
 						<th>Ruang</th>
-						<th>Kondisi Barang</th>
+						<th>Kondisi</th>
+						<th>Keterangan</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -140,6 +141,7 @@
 						<td>{{ $val->jumlah  }}</td>
 						<td>{{ $val->nama_ruangan }}</td>
 						<td>{{ $val->kondisi_barang }}</td>
+						<td>{{ $val->keterangan }}</td>
 					</tr>
 					@empty
 					<tr class="align-middle">

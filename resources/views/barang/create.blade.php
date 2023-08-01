@@ -125,6 +125,12 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<label for="staticEmail" class="col-sm-2 col-form-label">Keterangan</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="keterangan">
+						</div>
+					</div>
+					<div class="form-group row">
 						<label for="staticEmail" class="col-sm-2 col-form-label">Gambar</label>
 						<div class="col-sm-10">
 							<input type="file" class="form-control-file" name="gambar">

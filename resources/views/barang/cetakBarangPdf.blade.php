@@ -94,7 +94,7 @@
 <table id="subpage">
 
   <tr>
-    <img src="/sarpras/public/img/kopYayasan.png" alt="Girl in a jacket" width="850" height="auto">
+    <img src="/sarprasMedia/public/img/kopYayasanWeb.png" alt="Girl in a jacket" width="850" height="auto">
     <h1><center>Data Inventaris Tim Media 2023</center></h1>
     <th>No.</th>
     <th>QR Code</th>

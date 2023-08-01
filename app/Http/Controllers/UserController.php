@@ -25,8 +25,6 @@ class UserController extends Controller
 
     public function index()
     {
-
-
         $user = DB::table("users")->where('level','admin')->get();
         return view('user.view', compact('user'));
     }

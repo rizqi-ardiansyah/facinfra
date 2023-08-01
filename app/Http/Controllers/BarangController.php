@@ -27,7 +27,7 @@ class BarangController extends Controller
 		$ruangan  = Ruangan::pluck('nama_ruangan','nama_ruangan');
 		$tahun = BarangNew::groupBy('tahun_anggaran')->pluck('tahun_anggaran','tahun_anggaran');
 		$data  = BarangNew::select('barang_news.id','kode','tahun_anggaran','kode_barang','nama_barang','merk_type','jumlah',
-		'tanggal_perolehan','rupiah_satuan','ruang','kondisi_barang','gambar','r.nama_ruangan')
+		'tanggal_perolehan','rupiah_satuan','ruang','kondisi_barang','keterangan','gambar','r.nama_ruangan')
 					->join('ruangans as r','barang_news.ruang','=','r.id')
 					->when($request->has('kode') && !empty($request->kode), function($q){
 						$q->where('kode','like','%'.request()->kode.'%');
@@ -68,6 +68,7 @@ class BarangController extends Controller
 		$data["jumlah"] = $request->jumlah;
 		$data["ruang"] = $request->ruang;
 		$data["kondisi_barang"] = $request->kondisi_barang;
+		$data["keterangan"] = $request->keterangan;
 
 		if ($request->has('gambar')) {
 			$extension = $request->file('gambar')->extension();
@@ -121,6 +122,7 @@ class BarangController extends Controller
 		$data["jumlah"] = $request->jumlah;
 		$data["ruang"] = $request->ruang;
 		$data["kondisi_barang"] = $request->kondisi_barang;
+		$data["keterangan"] = $request->keterangan;
 
 		if ($request->has('gambar')) {
 			$extension = $request->file('gambar')->extension();

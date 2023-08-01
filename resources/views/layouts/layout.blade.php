@@ -48,7 +48,7 @@
 
   			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 
-  					<img src="{{ asset('img/logoSmp.png') }}" alt="logo" width="100%">
+  					<img src="{{ asset('img/logoYayasanWeb.png') }}" alt="logo" width="100%">
 
   				{{-- <div class="sidebar-brand-text mx-1"><small></small><BR>DATA BMN</BR></div> --}}
   			</a>

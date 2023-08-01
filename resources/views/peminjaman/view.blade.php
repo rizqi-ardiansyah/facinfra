@@ -165,7 +165,7 @@
     $('#example').DataTable({
            processing: true,
            serverSide: true,
-           ajax: "/sarpras/public/peminjaman_json",
+           ajax: "/sarprasMedia/public/peminjaman_json",
            columns: [
                     { data: 'nama_peminjam', name: 'nama_peminjam' },
                     { data: 'nama_barang', name: 'nama_barang' },
