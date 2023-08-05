@@ -38,7 +38,7 @@ class BarangController extends Controller
 					->when($request->has('tahun') && !empty($request->tahun), function($q){
 						$q->where('tahun_anggaran','like','%'.request()->tahun.'%');
 					})
-					->paginate(10);
+					->paginate(20);
 					// DB::table('files')->latest('upload_time')->first();
 				
 		$lastId = DB::table('barang_news')->max('id');
@@ -76,6 +76,9 @@ class BarangController extends Controller
 			$path = Storage::putFileAs('public', $request->file('gambar'), $imgName);
 			$paths = 'storage/'.$imgName;
 			$data['gambar'] = $paths;
+			// $data['gambar'] = 'storage/gambar/050805-9-2022B00019.png';
+		}else{
+			$data['gambar'] = 'storage/gambar/050805-9-2022B00019.png';
 		}
 
 		BarangNew::create($data);	
@@ -214,7 +217,7 @@ class BarangController extends Controller
 					->when($request->has('tahun') && !empty($request->tahun), function($q){
 						$q->where('tahun_anggaran','like','%'.request()->tahun.'%');
 					})
-					->paginate(10);
+					->get();
 					// DB::table('files')->latest('upload_time')->first();
 				
 		$lastId = DB::table('barang_news')->max('id');
